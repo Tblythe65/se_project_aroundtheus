@@ -75,12 +75,32 @@
 }
 
 @media screen and (max-width: 800px) {
-  .profile__add-button {
-    margin: 0 auto;
+  .profile__info {
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+
+  .profile__title {
+    font-size: 32px;
+  }
+
+  .profile__edit-button {
+    height: 18px;
+    width: 18px;
+  }
+  .profile__description {
+    font-size: 16px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 655px) {
+  .profile__add-button {
+    height: 55px;
+    width: 55px;
+  }
+}
+
+@media screen and (max-width: 560px) {
   .profile {
     flex-direction: column;
   }
