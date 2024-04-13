@@ -1,5 +1,7 @@
 # Around The U.S.
 
+https://tblythe65.github.io/se_project_aroundtheus/
+
 The early stages of a social media website with a focus on image posts rather than text.
 
 ## Features
