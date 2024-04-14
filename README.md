@@ -13,6 +13,6 @@ The early stages of a social media website with a focus on image posts rather th
 
 ### Walkthrough
 
-https://drive.google.com/file/d/1tc7K0YB1V91b7Zqy-5iKPyDEETKACZC6/view?usp=drive_link
-
 This is a little overview of the current state of the website.
+
+https://drive.google.com/file/d/1ApFsKwAseinCWhNAU4u6fJ1A1V0A59ow/view?usp=drive_link
