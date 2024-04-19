@@ -10,6 +10,7 @@ The early stages of a social media website with a focus on image posts rather th
 *Flexbox
 *Responsive design
 *BEM
+\*JavaScript
 
 ### Walkthrough
 
