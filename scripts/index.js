@@ -42,7 +42,7 @@ const cardListEl = document.querySelector(".cards__list");
 
 // Functions
 function closePopup() {
-  profileEditModal.classList.remove("modal__opened");
+  profileEditModal.classList.remove("modal_opened");
 }
 
 function getCardElement(cardData) {
@@ -70,7 +70,7 @@ profileEditBtn.addEventListener("click", () => {
   profileInputTitle.value = profileTitle.textContent;
   profileInputDescription.value = profileDescription.textContent;
 
-  profileEditModal.classList.add("modal__opened");
+  profileEditModal.classList.add("modal_opened");
 });
 
 profileEditClose.addEventListener("click", closePopup);
