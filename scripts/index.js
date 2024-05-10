@@ -60,9 +60,11 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
-  // find delete button
-  // add event listener
-  // cardElement.remove();
+  const deleteButton = cardElement.querySelector(".card__delete-button");
+
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
 
   // add click listener to cardImageEl
   // previewImageModal.classlist.add("modal_opened");
