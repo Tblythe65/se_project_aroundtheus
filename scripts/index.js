@@ -65,6 +65,13 @@ function openPopup(modal) {
   modal.classList.add("modal_opened");
 }
 
+function profileInput() {
+  profileInputTitle.value = profileTitle.textContent;
+  profileInputDescription.value = profileDescription.textContent;
+
+  openPopup(profileEditModal);
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
@@ -123,12 +130,7 @@ function handleAddCardSubmit(e) {
 }
 
 // Event listeners
-profileEditBtn.addEventListener("click", () => {
-  profileInputTitle.value = profileTitle.textContent;
-  profileInputDescription.value = profileDescription.textContent;
-
-  openPopup(profileEditModal);
-});
+profileEditBtn.addEventListener("click", profileInput);
 
 addNewCardButton.addEventListener("click", () => {
   openPopup(addCardModal);
