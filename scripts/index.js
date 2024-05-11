@@ -66,8 +66,26 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  // add click listener to cardImageEl
-  // previewImageModal.classlist.add("modal_opened");
+  cardImageEl.addEventListener("click", () => {
+    const previewImageModal = document.querySelector("#image-preview-modal");
+    const previewImage = previewImageModal.querySelector(
+      ".modal__image-preview"
+    );
+    const previewCaption = previewImageModal.querySelector(".modal__caption");
+    const previewImageClose = previewImageModal.querySelector(
+      ".modal__close_image_preview"
+    );
+
+    previewImageModal.classList.add("modal_opened");
+
+    previewImage.setAttribute("src", cardData.link);
+    previewImage.setAttribute("alt", cardData.name);
+    previewCaption.textContent = cardData.name;
+
+    previewImageClose.addEventListener("click", () => {
+      closePopup(previewImageModal);
+    });
+  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
