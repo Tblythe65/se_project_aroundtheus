@@ -59,10 +59,27 @@ const previewImageClose = previewImageModal.querySelector(
 // Functions
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", escClosePopup);
+  modal.removeEventListener("click", overlayClosePopup);
 }
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", escClosePopup);
+  modal.addEventListener("click", overlayClosePopup);
+}
+
+function escClosePopup(e) {
+  if (e.key === "Escape") {
+    const popupOpen = document.querySelector(".modal_opened");
+    closePopup(popupOpen);
+  }
+}
+
+function overlayClosePopup(e) {
+  if (e.target.classList.contains("modal")) {
+    closePopup(e.target);
+  }
 }
 
 function profileInput() {
