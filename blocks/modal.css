@@ -97,6 +97,7 @@
 
 .modal__label {
   max-width: 430px;
+  position: relative;
 }
 
 .modal__input_type_error {
@@ -143,8 +144,8 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 1.2;
-  position: relative;
-  bottom: 30px;
+  position: absolute;
+  top: 35px;
 }
 
 @media screen and (max-width: 630px) {
