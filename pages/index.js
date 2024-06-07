@@ -27,8 +27,6 @@ const initialCards = [
   },
 ];
 
-const cardSelector = document.querySelector("#card-template");
-
 // Profile Edit Elements
 const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -45,6 +43,7 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const cardListEl = document.querySelector(".cards__list");
+const cardSelector = document.querySelector("#card-template");
 
 // Add Card Elements
 const addNewCardButton = document.querySelector(".profile__add-button");
