@@ -163,6 +163,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
   addCardForm.reset();
+  addFormValidator.toggleButtonState();
 }
 
 // Event listeners
