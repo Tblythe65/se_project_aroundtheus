@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-// import FormValidator from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -133,9 +133,9 @@ function openProfileModal() {
 function handleImageClick(cardData) {
   openPopup(previewImageModal);
 
-  previewImage.setAttribute("src", cardData._link);
-  previewImage.setAttribute("alt", cardData._name);
-  previewCaption.textContent = cardData._name;
+  previewImage.setAttribute("src", cardData.link);
+  previewImage.setAttribute("alt", cardData.name);
+  previewCaption.textContent = cardData.name;
 }
 
 function renderCard(cardData, wrapper) {

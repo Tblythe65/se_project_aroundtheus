@@ -1,7 +1,7 @@
 export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
-    this._name = name;
-    this._link = link;
+    this.name = name;
+    this.link = link;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
@@ -45,9 +45,9 @@ export default class Card {
 
   getView() {
     this._cardElement = this._getTemplate();
-    this._cardElement.querySelector(".card__image").src = this._link;
-    this._cardElement.querySelector(".card__image").alt = this._name;
-    this._cardElement.querySelector(".card__title").textContent = this._name;
+    this._cardElement.querySelector(".card__image").src = this.link;
+    this._cardElement.querySelector(".card__image").alt = this.name;
+    this._cardElement.querySelector(".card__title").textContent = this.name;
 
     this._setEventListeners();
 
