@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -130,6 +131,12 @@ function openProfileModal() {
 //   return cardElement;
 // }
 
+const cardList = new Section(
+  { data: initialCards, renderer: getCardElement },
+  cardListEl
+);
+cardList.renderItems();
+
 function handleImageClick(cardData) {
   openPopup(previewImageModal);
 
@@ -138,10 +145,10 @@ function handleImageClick(cardData) {
   previewCaption.textContent = cardData.name;
 }
 
-function renderCard(cardData, wrapper) {
-  const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
-}
+// function renderCard(cardData, wrapper) {
+//   const cardElement = getCardElement(cardData);
+//   wrapper.prepend(cardElement);
+// }
 
 function getCardElement(cardData) {
   const card = new Card(cardData, cardSelector, handleImageClick);
@@ -187,7 +194,7 @@ previewImageClose.addEventListener("click", () => {
   closePopup(previewImageModal);
 });
 
-initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+// initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 // Form Validation
 
