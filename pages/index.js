@@ -64,30 +64,30 @@ const previewImage = previewImageModal.querySelector(".modal__image-preview");
 const previewCaption = previewImageModal.querySelector(".modal__caption");
 
 // Functions
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
-  document.removeEventListener("keydown", handleEscape);
-  modal.removeEventListener("click", handleOverlay);
-}
+// function closePopup(modal) {
+//   modal.classList.remove("modal_opened");
+//   document.removeEventListener("keydown", handleEscape);
+//   modal.removeEventListener("click", handleOverlay);
+// }
 
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", handleEscape);
-  modal.addEventListener("click", handleOverlay);
-}
+// function openPopup(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", handleEscape);
+//   modal.addEventListener("click", handleOverlay);
+// }
 
-function handleEscape(e) {
-  if (e.key === "Escape") {
-    const popupOpen = document.querySelector(".modal_opened");
-    closePopup(popupOpen);
-  }
-}
+// function handleEscape(e) {
+//   if (e.key === "Escape") {
+//     const popupOpen = document.querySelector(".modal_opened");
+//     closePopup(popupOpen);
+//   }
+// }
 
-function handleOverlay(e) {
-  if (e.target.classList.contains("modal")) {
-    closePopup(e.target);
-  }
-}
+// function handleOverlay(e) {
+//   if (e.target.classList.contains("modal")) {
+//     closePopup(e.target);
+//   }
+// }
 
 function openProfileModal() {
   profileInputTitle.value = profileTitle.textContent;
