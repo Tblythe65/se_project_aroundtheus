@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 const initialCards = [
   {
@@ -139,11 +140,11 @@ const cardList = new Section(
 cardList.renderItems();
 
 function handleImageClick(cardData) {
-  openPopup(previewImageModal);
+  imagePopup.open(cardData);
 
-  previewImage.setAttribute("src", cardData.link);
-  previewImage.setAttribute("alt", cardData.name);
-  previewCaption.textContent = cardData.name;
+  // previewImage.setAttribute("src", cardData.link);
+  // previewImage.setAttribute("alt", cardData.name);
+  // previewCaption.textContent = cardData.name;
 }
 
 // function renderCard(cardData, wrapper) {
@@ -164,6 +165,13 @@ profilePopupForm.setEventListeners();
 
 const cardPopupForm = new PopupWithForm(addCardModal, handleAddCardSubmit);
 cardPopupForm.setEventListeners();
+
+const imagePopup = new PopupWithImage(
+  previewImageModal,
+  previewCaption,
+  previewImage
+);
+imagePopup.setEventListeners();
 
 // Event Handlers
 function handleProfileEditSubmit() {
@@ -197,9 +205,9 @@ addNewCardButton.addEventListener("click", () => {
   cardPopupForm.open();
 });
 
-profileEditClose.addEventListener("click", () => {
-  closePopup(profileEditModal);
-});
+// profileEditClose.addEventListener("click", () => {
+//   closePopup(profileEditModal);
+// });
 
 // profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 // addCardForm.addEventListener("submit", handleAddCardSubmit);
@@ -208,9 +216,9 @@ profileEditClose.addEventListener("click", () => {
 //   closePopup(addCardModal);
 // });
 
-previewImageClose.addEventListener("click", () => {
-  closePopup(previewImageModal);
-});
+// previewImageClose.addEventListener("click", () => {
+//   closePopup(previewImageModal);
+// });
 
 // initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
