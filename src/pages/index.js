@@ -73,13 +73,13 @@ function handleProfileEditSubmit(userData) {
   userInfo.setUserInfo(userData);
 }
 
-function handleAddCardSubmit(e) {
+function handleAddCardSubmit() {
   const name = addCardInputTitle.value;
   const link = addCardInputUrl.value;
   cardList.addItem({ name, link });
   cardPopupForm.close();
   addCardForm.reset();
-  addFormValidator._toggleButtonState();
+  addFormValidator.toggleButtonState();
 }
 
 function handleImageClick(cardData) {
