@@ -6,6 +6,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import { config, initialCards } from "../utils/constants.js";
+import Api from "../components/Api.js";
 
 // Profile Edit Elements
 const profileEditBtn = document.querySelector("#profile-edit-button");
@@ -33,6 +34,16 @@ const addCardForm = addCardModal.querySelector("#add-card-form");
 const previewImageModal = document.querySelector("#image-preview-modal");
 const previewImage = previewImageModal.querySelector(".modal__image-preview");
 const previewCaption = previewImageModal.querySelector(".modal__caption");
+
+// Api
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "490c7282-3133-4c79-a389-2fb95cb53700",
+    "Content-Type": "application/json",
+  },
+});
 
 // Card and Profile classes
 
