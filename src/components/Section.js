@@ -16,4 +16,3 @@ export default class Section {
     this._container.prepend(renderedItem);
   }
 }
-// seeing if this commits correctly
