@@ -5,8 +5,13 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import { config, initialCards } from "../utils/constants.js";
+import { config } from "../utils/constants.js";
 import Api from "../components/Api.js";
+import PopupConfirmDelete from "../components/PopupConfirmDelete.js";
+
+// Avatar Edit Elements
+const avatarEditForm = document.querySelector("#update-avatar-form");
+const avatarEditButton = document.querySelector("#avatar-edit-button");
 
 // Profile Edit Elements
 const profileEditBtn = document.querySelector("#profile-edit-button");
@@ -45,15 +50,27 @@ const api = new Api({
   },
 });
 
+let cardSection;
+
+api
+  .getInitialCards()
+  .then((cardData) => {
+    cardSection = new Section(
+      {
+        data: cardData,
+        renderer: getCardElement,
+      },
+      cardListEl
+    );
+    cardSection.renderItems();
+  })
+  .catch(console.error);
+
+// api.getUser().then(userData);
+
 // Card and Profile classes
 
 const userInfo = new UserInfo(profileTitle, profileDescription);
-
-const cardList = new Section(
-  { data: initialCards, renderer: getCardElement },
-  cardListEl
-);
-cardList.renderItems();
 
 function getCardElement(cardData) {
   const card = new Card(cardData, cardSelector, handleImageClick);
