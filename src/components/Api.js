@@ -25,7 +25,7 @@ export default class Api {
     });
   }
 
-  addCard({ name, link }) {
+  addCard(name, link) {
     return this._request(`${this._baseUrl}/users/me`, {
       method: "POST",
       headers: this._headers,
@@ -33,11 +33,11 @@ export default class Api {
     });
   }
 
-  editProfile(name, info) {
+  editProfile(name, about) {
     return this._request(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({ name, info }),
+      body: JSON.stringify({ name, about }),
     });
   }
 
