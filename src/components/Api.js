@@ -26,7 +26,7 @@ export default class Api {
   }
 
   addCard(name, link) {
-    return this._request(`${this._baseUrl}/users/me`, {
+    return this._request(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({ name, link }),
