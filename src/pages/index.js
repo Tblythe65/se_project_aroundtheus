@@ -37,6 +37,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addCardInputTitle = document.querySelector("#card-input-title");
 const addCardInputUrl = document.querySelector("#card-input-url");
 const addCardForm = addCardModal.querySelector("#add-card-form");
+const deleteCardModal = document.querySelector("#confirm-delete-modal");
 
 // Preview Image Elements
 const previewImageModal = document.querySelector("#image-preview-modal");
@@ -82,7 +83,13 @@ api
 const userInfo = new UserInfo(profileTitle, profileDescription, avatarImage);
 
 function getCardElement(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
+  const card = new Card(
+    cardData,
+    cardSelector,
+    handleImageClick,
+    handleConfirmDelete,
+    handleImageLike
+  );
   return card.getView();
 }
 
@@ -107,9 +114,14 @@ const imagePopup = new PopupWithImage(
 );
 imagePopup.setEventListeners();
 
+const deleteCardPopup = new PopupConfirmDelete(deleteCardModal);
+deleteCardPopup.setEventListeners();
+
 // Event Handlers
+
 function handleProfileEditSubmit(userData) {
   profilePopupForm.viewLoading(true);
+  console.log(userData.name, userData.about);
   api
     .editProfile(userData.name, userData.about)
     .then((data) => {
@@ -122,18 +134,12 @@ function handleProfileEditSubmit(userData) {
     });
 }
 
-function handleAddCardSubmit(addCardInputTitle, addCardInputUrl) {
-  // const name = addCardInputTitle.value;
-  // const link = addCardInputUrl.value;
-  // cardList.addItem({ name, link });
-  // cardPopupForm.close();
-  // addCardForm.reset();
-  // addFormValidator.toggleButtonState();
+function handleAddCardSubmit(cardData) {
   cardPopupForm.viewLoading(true);
   api
-    .addCard({ name: addCardInputTitle, link: addCardInputUrl })
+    .addCard(cardData.name, cardData.link)
     .then((data) => {
-      cardSection.addItem(getCardElement(data));
+      cardSection.addItem(data);
       cardPopupForm.close();
       addCardForm.reset();
       addFormValidator.toggleButtonState();
@@ -160,6 +166,37 @@ function handleAvatarSubmit({ link }) {
     .finally(() => {
       avatarPopupForm.viewLoading(false);
     });
+}
+
+function handleConfirmDelete(card) {
+  deleteCardPopup.open();
+  deleteCardPopup.confirmDelete(() => {
+    api
+      .removeCard(card._id)
+      .then(() => {
+        card.handleDeleteCard();
+        deleteCardPopup.close();
+      })
+      .catch(console.error);
+  });
+}
+
+function handleImageLike(card) {
+  if (card.isLiked) {
+    api
+      .removeLike(card._id)
+      .then(() => {
+        card.setLikes(false);
+      })
+      .catch(console.error);
+  } else {
+    api
+      .addLike(card._id)
+      .then(() => {
+        card.setLikes(true);
+      })
+      .catch(console.error);
+  }
 }
 
 // Event listeners

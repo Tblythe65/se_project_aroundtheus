@@ -68,7 +68,7 @@
           <label for="profile-input-title" class="modal__label">
             <input
               type="text"
-              name="title"
+              name="name"
               id="profile-input-title"
               class="modal__input"
               placeholder="Name"
@@ -81,7 +81,7 @@
           <label for="profile-input-description" class="modal__label">
             <input
               type="text"
-              name="description"
+              name="about"
               id="profile-input-description"
               class="modal__input"
               placeholder="Description"
@@ -107,7 +107,7 @@
           <label for="card-input-title" class="modal__label">
             <input
               type="text"
-              name="title"
+              name="name"
               id="card-input-title"
               class="modal__input"
               placeholder="Title"
@@ -120,7 +120,7 @@
           <label for="card-input-url" class="modal__label">
             <input
               type="url"
-              name="url"
+              name="link"
               id="card-input-url"
               class="modal__input"
               placeholder="Image URL"
@@ -145,10 +145,10 @@
     </div>
     <!-- Confirmation Modal -->
     <div class="modal" id="confirm-delete-modal">
-      <div class="modal__container">
+      <div class="modal__container modal__container_confirm">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading">Are you sure?</h2>
-        <form class="modal__form" id="delete-card-form">
+        <form class="modal__form modal__form_confirm" id="delete-card-form">
           <button class="modal__button" type="submit">Yes</button>
         </form>
       </div>
@@ -169,7 +169,10 @@
             class="modal__input"
             required
           />
-          <span class="modal__error" id="avatar-url-error"></span>
+          <span
+            class="modal__error modal__error_avatar"
+            id="avatar-url-error"
+          ></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>

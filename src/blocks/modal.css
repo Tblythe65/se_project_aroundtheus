@@ -28,6 +28,11 @@
   width: 430px;
 }
 
+.modal__container_confirm {
+  max-height: 109px;
+  max-width: 358px;
+}
+
 .modal__container_image_preview {
   display: flex;
   max-width: 75%;
@@ -79,6 +84,10 @@
   display: flex;
   flex-direction: column;
   margin-top: 54px;
+}
+
+.modal__form_confirm {
+  margin-top: 20px;
 }
 
 .modal__input {
@@ -146,6 +155,10 @@
   line-height: 1.2;
   position: absolute;
   top: 35px;
+}
+
+.modal__error_avatar {
+  top: 155px;
 }
 
 @media screen and (max-width: 630px) {
