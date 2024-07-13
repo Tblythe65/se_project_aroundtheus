@@ -28,19 +28,26 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau"
-            class="profile__image"
-          />
+          <div class="profile__avatar">
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="avatar"
+              class="profile__image"
+            />
+            <button
+              type="button"
+              id="avatar-edit-button"
+              class="profile__avatar-button"
+            ></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"
             ></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -61,7 +68,7 @@
           <label for="profile-input-title" class="modal__label">
             <input
               type="text"
-              name="title"
+              name="name"
               id="profile-input-title"
               class="modal__input"
               placeholder="Name"
@@ -74,7 +81,7 @@
           <label for="profile-input-description" class="modal__label">
             <input
               type="text"
-              name="description"
+              name="about"
               id="profile-input-description"
               class="modal__input"
               placeholder="Description"
@@ -100,7 +107,7 @@
           <label for="card-input-title" class="modal__label">
             <input
               type="text"
-              name="title"
+              name="name"
               id="card-input-title"
               class="modal__input"
               placeholder="Title"
@@ -113,7 +120,7 @@
           <label for="card-input-url" class="modal__label">
             <input
               type="url"
-              name="url"
+              name="link"
               id="card-input-url"
               class="modal__input"
               placeholder="Image URL"
@@ -121,7 +128,9 @@
             />
             <span class="modal__error" id="card-input-url-error"></span>
           </label>
-          <button class="modal__button" type="submit">Create</button>
+          <button class="modal__button modal__button_disabled" type="submit">
+            Create
+          </button>
         </form>
       </div>
     </div>
@@ -134,6 +143,40 @@
         ></button>
         <img src="none" alt="none" class="modal__image-preview" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirm-delete-modal">
+      <div class="modal__container modal__container_confirm">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading">Are you sure?</h2>
+        <form class="modal__form modal__form_confirm" id="delete-card-form">
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+    <!-- Update Avatar Modal -->
+    <div class="modal" id="update-avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading">Change profile picture</h2>
+        <form id="update-avatar-form" class="modal__form">
+          <input
+            type="url"
+            name="link"
+            placeholder="Image link"
+            minlength="2"
+            maxlength="200"
+            id="avatar-url"
+            class="modal__input"
+            required
+          />
+          <span
+            class="modal__error modal__error_avatar"
+            id="avatar-url-error"
+          ></span>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
       </div>
     </div>
     <!-- Card Template -->

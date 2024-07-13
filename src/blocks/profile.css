@@ -5,12 +5,35 @@
 }
 
 .profile__image {
-  height: 120px;
-  width: 120px;
+  height: 100%;
+  width: 100%;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
+}
+
+.profile__avatar {
+  position: relative;
+  width: 120px;
+  height: 120px;
   margin-right: 24px;
+}
+
+.profile__avatar-button {
+  background: transparent url(../images/EditAvatar.svg) center no-repeat;
+  border: none;
+  height: 26px;
+  width: 26px;
+  position: relative;
+  bottom: 77px;
+  left: 45px;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.profile__avatar-button:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .profile__info {
