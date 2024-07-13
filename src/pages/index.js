@@ -182,7 +182,7 @@ function handleConfirmDelete(card) {
 }
 
 function handleImageLike(card) {
-  if (card.isLiked) {
+  if (card.getLikes()) {
     api
       .removeLike(card._id)
       .then(() => {
